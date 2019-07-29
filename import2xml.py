@@ -71,11 +71,8 @@ def import_to_xml(xlsx_file_path: str):
         default_soup = BeautifulSoup(open(path, encoding='utf-8'), "xml")
         all_string = default_soup.find_all('string')
 
-        zh_column = Utils.get_column_index_by_name_in_first_row(android_sheet, const.ZH_COLUMN_NAME)
         en_column = Utils.get_column_index_by_name_in_first_row(android_sheet, const.EN_COLUMN_NAME)
-        zh_index = zh_column - 1
         en_index = en_column - 1
-        row_size = 3
 
         for str_tmp in all_string:
             if Utils.contains_simplified_chinese(str(str_tmp.next)):
@@ -134,4 +131,3 @@ def save_soup(default_soup, path):
 if __name__ == '__main__':
     options = add_parser()
     import_to_xml(options.xlsxFilePath)
-    # getAllStringFilePath()
