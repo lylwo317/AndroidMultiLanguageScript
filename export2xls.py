@@ -110,11 +110,10 @@ def translate_xlsx(untranslate_xlsx_file_path):
     all_row = {}
     key_index = Utils.get_column_index_by_name_in_first_row(android_sheet, const.KEY_COLUMN_NAME) - 1
     zh_index = Utils.get_column_index_by_name_in_first_row(android_sheet, const.ZH_COLUMN_NAME) - 1
-    en_column = Utils.get_column_index_by_name_in_first_row(android_sheet, const.EN_COLUMN_NAME)
 
     for row in android_sheet.rows:
         current_row = row[key_index].row
-        android_sheet.cell(current_row, en_column, translator.translate(row[zh_index].value).text)
+        android_sheet.cell(current_row, 3, translator.translate(row[zh_index].value).text)
 
     wb.save(os.path.join(options.outputDir, const.EXPORT_TRANSLATE_FILE_NAME))
     return all_row
