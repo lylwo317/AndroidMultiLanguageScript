@@ -69,7 +69,3 @@ Options:
   -x XLSXFILEPATH, --xlsxFilePath=XLSXFILEPATH
                         The translated xlsx file path.
 ```
-
-
-
-    
